@@ -1,0 +1,77 @@
+---
+title: 記事にタグを複数付ける
+slug: study1
+image: ./images/program.jpg
+embeddedImages: ./images/program.jpg
+date: 2021-07-29
+author: カニヤ
+category: ['Gatsby', 'プログラミング']
+readTime: 10
+---
+
+今回は個人的に少し手こずった、<br/>
+**タグの複数付け**の過程を書いていきたいと思う。
+
+### 問題１
+
+最初タグを`category: ブログ`という感じに書いていた。
+
+これだと 1 記事に１つしか付けられないので、
+
+まず`categorys: ['ブログ','プログラミング']`に書き換えてみた。
+
+### 問題２
+
+そして、次にタグを表示している **Post.js** を見る。<br/>
+
+```jsx
+<Link to={`/${category}`} className="category">
+  <span>{category}</span>
+</Link>
+```
+
+この状態では、タグが複数だと**ブログ、プログラミング**と言った感じで、<br/>
+1 つのタグとして表示される。
+
+### 解決法
+
+なので、新しく**Tags**コンポーネントを作る事にした。<br/>
+同じ階層化に** Tags.js **を作った。
+
+```jsx
+const Tag = ({ category }) => (
+  <>
+    <Link to={`/${category}`} className="category">
+      <span>{category}</span>
+    </Link>
+  </>
+)
+
+const Tags = ({ categorys }) => (
+  <>
+    {(categorys || []).map(category => (
+      <Tag key={category} tag={category} />
+    ))}
+  </>
+)
+```
+
+まず**Tags**に**categorys**を渡し、<br/>
+それを**map**で回し１つ１つ取り出す。
+
+そして、今度は**Tag**に取り出した**category**を渡す。<br/>
+それを Link タグで囲み出力する。
+
+### 終わり
+
+これを先ほどの **Post.js** に import として
+
+```jsx
+<Tags categorys={categorys} />
+```
+
+に修正すれば完了。
+
+やっていることは全然難しくないのですが、<br/>
+少し苦戦してしまった。<br/>
+まだまだ勉強不足なので、これからも頑張りたい。
