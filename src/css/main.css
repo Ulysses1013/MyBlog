@@ -177,7 +177,7 @@ p {
 /* social links */
 
 main {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 /*
@@ -327,7 +327,7 @@ Sidebar
   margin: 1rem 0;
 }
 .sidebar .category {
-  color: var(--clr-grey-5);
+  color: #2d8ae0;
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -387,6 +387,7 @@ Posts Component
 .toc {
   background-color: #f2f2f2;
   padding: 10px;
+  margin-bottom: 20px;
 }
 .toc__title {
   margin: 0;
@@ -487,10 +488,21 @@ Single Pages
   border: 0.5px solid var(--clr-grey-9);
   border-right: transparent;
   font-size: 1rem;
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   border-radius: var(--radius);
   display: block;
   width: 20rem;
+}
+.form-textarea {
+  padding: 0.5rem;
+  border: 0.5px solid var(--clr-grey-9);
+  border-right: transparent;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  border-radius: var(--radius);
+  display: block;
+  width: 20rem;
+  height: 15rem;
 }
 .submit-btn {
   font-weight: 400;
@@ -503,11 +515,9 @@ Single Pages
   border-right: var(--clr-primary-8);
 }
 @media screen and (min-width: 992px) {
-  .contact-form {
-    flex-direction: row;
-  }
-  .form-control {
-    width: 15rem;
+  .form-control,
+  .form-textarea {
+    width: 30rem;
     border-radius: 0;
   }
   input[type='text'] {

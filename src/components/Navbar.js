@@ -10,10 +10,9 @@ const Navbar = ({ toggle }) => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/" className="nav-title">
-            
             MecaBlog
           </Link>
-          <button className="toggle-btn" onClick={toggle}>
+          <button aria-label="toggle" className="toggle-btn" onClick={toggle} >
             <FaBars></FaBars>
           </button>
         </div>

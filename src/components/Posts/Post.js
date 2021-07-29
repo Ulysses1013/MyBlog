@@ -4,6 +4,7 @@ import { FaRegClock } from 'react-icons/fa'
 import { IoMdArrowRoundForward } from 'react-icons/io'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Tags from './Tags'
 
 const Post = ({ excerpt, frontmatter }) => {
   const { title, image, slug, date, category, readTime } = frontmatter
@@ -11,11 +12,12 @@ const Post = ({ excerpt, frontmatter }) => {
     <Wrapper>
       <GatsbyImage image={getImage(image)} alt={title} className="img" />
       <div className="info">
-        <Link to={`/${category}`} className="category">{category}</Link>
+        <Tags category={category} />
+        
         <Link to={`/posts/${slug}`} className="link"><h3>{title}</h3></Link>
         <div className="underline"></div>
         <p>{excerpt}</p>
-        <Link to={`/posts/${slug}`} className="link">
+        <Link to={`/posts/${slug}`} className="link" aria-label="detail">
           続きを読む <IoMdArrowRoundForward />
         </Link>
         <footer>
@@ -43,13 +45,14 @@ const Wrapper = styled.article`
   .category {
     display: inline-block;
     margin-bottom: 1rem;
-    background: var(--clr-grey-10);
+    background: #cbd2d7;
     padding: 0.25rem 0.5rem;
+    margin-right: 5px;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: var(--radius);
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: #5a6876;
   }
   h3 {
     font-weight: 400;
@@ -87,11 +90,11 @@ const Wrapper = styled.article`
   footer {
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--clr-grey-9);
+    border-top: 1px solid #74787e;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--clr-grey-5);
+    color: #58616a;
 
     & .date {
       display: flex;

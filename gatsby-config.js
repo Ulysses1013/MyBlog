@@ -3,13 +3,14 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
     title: `MecaBlog`,
-    description: `アニメ・ゲーム・映画・競馬を中心に情報発信`,
-    author: `アルテス`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `日々のプログラミングの学習を記録します。時々、趣味の事も投稿する。`,
+    author: `カニヤ`,
+    siteUrl: `https://mecablog.netlify.app/`,
   },
   /* Your site config here */
   plugins: [
@@ -18,10 +19,32 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-autolink-headers`],
+        plugins: [
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "目次",
+              tight: true,
+              ordered: true,
+              fromHeading: 2,
+              toHeading: 4,
+              className: "table-of-contents"
+            },
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon:false,
+              elements: [`h2`,`h3`,`h4`],
+            },
+          },
+        ],
       },
     },
     {
@@ -53,7 +76,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["process.env.GOOGLE_ANALYTICS_ID"],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
   ],

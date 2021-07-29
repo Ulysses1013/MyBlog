@@ -17,7 +17,7 @@ const About = () => {
         className="img"
       />
       <p>
-        アルテスです。ゲーム・アニメ・映画・競馬を中心に情報発信。
+        カニヤです。日々のプログラミングの学習を記録していきます。
       </p>
       <SocialLinks styleClass="banner-icons"></SocialLinks>
     </Wrapper>
@@ -27,7 +27,7 @@ const About = () => {
 const Wrapper = styled.div`
   text-align: center;
   p {
-    color: var(--clr-grey-5);
+    color: #41484f;
   }
   .img {
     border-radius: 50%;

@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
-const NewsLetter = () => {
+const Contact = () => {
   return (
     <Layout>
       <section className="newsletter-page">
         <div className="page-center">
-          <h2>Get all the latest stories to your inbox</h2>
-          <h4>I write to my friends every few weeks</h4>
+          <h2>お問い合わせ</h2>
+          
           <form
             className="contact-form"
             name="contact"
@@ -21,17 +21,25 @@ const NewsLetter = () => {
             <input
               type="text"
               name="name"
-              placeholder="Your name"
+              placeholder="お名前"
               className="form-control "
+              required
             />
             <input
               type="email"
               name="email"
               className="form-control"
-              placeholder="Your email"
+              placeholder="メールアドレス"
+              required
             />
+            <textarea 
+              name="message"
+              className="form-textarea"
+              placeholder="こちらにお問い合わせ内容を入力してください"
+              required
+            ></textarea>
             <button type="submit" className="btn form-control submit-btn">
-              subscribe
+              送信
             </button>
           </form>
         </div>
@@ -40,4 +48,4 @@ const NewsLetter = () => {
   )
 }
 
-export default NewsLetter
+export default Contact

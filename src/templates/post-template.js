@@ -7,6 +7,7 @@ import Banner from '../components/Banner'
 import { graphql,Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Toc from '../components/Toc'
+import Tags from '../components/Posts/Tags'
 
 const PostTemplate = ({ data }) => {
   const {
@@ -30,7 +31,7 @@ const PostTemplate = ({ data }) => {
             className="main-img"
           />
           <div className="post-info">
-            <Link to={`/${category}`}><span>{category}</span></Link>
+            <Tags category={category} />
             <h2>{title}</h2>
             <p>{date}</p>
             <div className="underline"></div>
@@ -44,19 +45,27 @@ const PostTemplate = ({ data }) => {
 
         
           <div className="mycontainer">
-            <div className="prev">
+            
+            <div className="prev"> 
             {previous && (
+              <>
+                <span>前の記事</span>
                 <Link to={`/posts/${previous.frontmatter.slug}`} className="link-color">
                   ←{previous.frontmatter.title}
                 </Link>
+              </>
             )}
             </div>
             <br/>
+            
             <div className="next">
             {next && (
+              <>
+                <span> 次の記事</span>
                 <Link to={`/posts/${next.frontmatter.slug}`} className="link-color">
                   {next.frontmatter.title}→
                 </Link>
+              </>
             )}
             </div>
           </div>
@@ -128,11 +137,12 @@ const Wrapper = styled.section`
     margin: 2rem 0 4rem 0;
     text-align: center;
     span {
-      background: var(--clr-grey-10);
-      color: var(--clr-grey-5);
+      background: #cbd2d7;
+      color: #333f4b;
       border-radius: var(--radius);
       padding: 0.25rem 0.5rem;
       text-transform: uppercase;
+      margin-right: 5px;
       letter-spacing: var(--spacing);
     }
     h2 {
@@ -153,8 +163,14 @@ const Wrapper = styled.section`
   
   .prev {
     text-align: left;
+    display: grid;
   }
   .next {
+    text-align: right;
+    display: grid;
+    margin-bottom: 10px;
+  }
+  .next-span {
     text-align: right;
   }
   .link-color {

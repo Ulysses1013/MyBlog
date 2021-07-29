@@ -75,7 +75,7 @@ const Wrapper = styled.div`
   p {
     font-size: 0.6rem;
     margin-bottom: 0;
-    color: var(--clr-grey-5);
+    color: #41484f;
   }
   .post:hover {
     h5 {

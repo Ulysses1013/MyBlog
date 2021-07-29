@@ -6,9 +6,9 @@ const Success = () => {
     <Layout>
       <section className="success-page">
         <div className="page-center">
-          <h2>your submission was recieved ! </h2>
-          <Link to="/" className="btn">
-            back home
+          <h2>送信完了！</h2>
+          <Link to="/" className="btn" aria-label="back">
+            戻る
           </Link>
         </div>
       </section>
