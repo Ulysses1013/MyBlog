@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const About = () => {
   return (
     <Wrapper>
-      <Title title="about me" />
+      <Title title="プロフィール" />
       <StaticImage
         src="../../assets/MyIcon.jpg"
         layout="fixed"
@@ -17,7 +17,7 @@ const About = () => {
         className="img"
       />
       <p>
-        カニヤです。日々のプログラミングの学習を記録していきます。
+        現在大学生のカニヤです。日々のプログラミングの学習記録を投稿します。
       </p>
       <SocialLinks styleClass="banner-icons"></SocialLinks>
     </Wrapper>

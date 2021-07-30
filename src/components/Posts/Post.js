@@ -25,7 +25,7 @@ const Post = ({ excerpt, frontmatter }) => {
             <FaRegClock className="icon" />
             {date}
           </span>
-          <span>{readTime} min read</span>
+          <span>{readTime} 分で読めます</span>
         </footer>
       </div>
     </Wrapper>

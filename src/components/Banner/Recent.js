@@ -34,7 +34,7 @@ const Recent = () => {
 
   return (
     <Wrapper>
-      <Title title="recent" />
+      <Title title="最新記事" />
       {posts.map(post => {
         const { title, slug, date, image } = post.frontmatter
         return (

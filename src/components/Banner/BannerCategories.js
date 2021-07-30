@@ -5,7 +5,7 @@ import Title from './Title'
 const BannerCategories = () => {
   return (
     <Wrapper>
-      <Title title="categories"></Title>
+      <Title title="カテゴリー"></Title>
       <Categories />
     </Wrapper>
   )
