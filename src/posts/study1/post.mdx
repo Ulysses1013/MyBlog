@@ -2,7 +2,6 @@
 title: 記事にタグを複数付ける
 slug: study1
 image: ./images/program.jpg
-embeddedImages: ./images/program.jpg
 date: 2021-07-29
 author: カニヤ
 category: ['Gatsby', 'プログラミング']
@@ -14,6 +13,10 @@ readTime: 10
 
 ### 問題１
 
+---
+
+<br />
+
 最初タグを**category: ブログ**という感じに書いていた。
 
 これだと 1 記事に１つしか付けられないので、
@@ -22,7 +25,11 @@ readTime: 10
 
 ### 問題２
 
-そして、次にタグを表示している **Post.js** を見る。<br/>
+---
+
+<br />
+そして、次にタグを表示している **Post.js** を見る。
+<br />
 
 ```jsx
 <Link to={`/${category}`} className="category">
@@ -34,6 +41,10 @@ readTime: 10
 1 つのタグとして表示される。
 
 ### 解決法
+
+---
+
+<br />
 
 なので、新しく**Tags**コンポーネントを作る事にした。<br/>
 同じ階層化に** Tags.js **を作った。
@@ -63,6 +74,10 @@ const Tags = ({ categorys }) => (
 それを Link タグで囲み出力する。
 
 ### 終わり
+
+---
+
+<br />
 
 これを先ほどの **Post.js** に import として
 

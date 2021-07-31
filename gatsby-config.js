@@ -1,19 +1,24 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
- require('dotenv').config();
+require('dotenv').config();
+
 
 module.exports = {
   siteMetadata: {
     title: `MecaBlog`,
-    description: `日々のプログラミングの学習を記録します。時々、趣味の事も投稿する。`,
+    description: `日々のプログラミングの学習記録、また趣味の事を投稿します。`,
     author: `カニヤ`,
     siteUrl: `https://mecablog.netlify.app/`,
   },
   /* Your site config here */
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["process.env.GATSBY_GOOGLE_ANALYTICS_ID"],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -80,14 +85,6 @@ module.exports = {
         gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
       },
     },
-    {
-      resolve: "gatsby-plugin-google-gtag",
-      options: {
-        trackingIds: ["process.env.GOOGLE_ANALYTICS_ID"],
-        pluginConfig: {
-          head: true,
-        },
-      },
-    },
+    
   ],
 }

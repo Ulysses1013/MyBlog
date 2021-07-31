@@ -17,7 +17,7 @@ const Post = ({ excerpt, frontmatter }) => {
         <Link to={`/posts/${slug}`} className="link"><h3>{title}</h3></Link>
         <div className="underline"></div>
         <p>{excerpt}</p>
-        <Link to={`/posts/${slug}`} className="link" aria-label="detail">
+        <Link to={`/posts/${slug}`} className="link" id="detail">
           続きを読む <IoMdArrowRoundForward />
         </Link>
         <footer>
