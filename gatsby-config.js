@@ -6,14 +6,14 @@ module.exports = {
     title: `MecaBlog`,
     description: `日々のプログラミングの学習記録、また趣味の事を投稿します。`,
     author: `カニヤ`,
-    siteUrl: `https://mecablog.netlify.app/`,
+    siteUrl: `https://mecablog.netlify.app`,
   },
   /* Your site config here */
   plugins: [
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingIds: ["process.env.GATSBY_GOOGLE_ANALYTICS_ID"],
+        trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_ID],
         pluginConfig: {
           head: true,
         },

@@ -138,7 +138,7 @@ const Wrapper = styled.section`
     text-align: center;
     span {
       background: #cbd2d7;
-      color: #333f4b;
+      color: black;
       border-radius: var(--radius);
       padding: 0.25rem 0.5rem;
       text-transform: uppercase;

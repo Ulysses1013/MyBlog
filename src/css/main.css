@@ -122,7 +122,13 @@ p {
   }
 }
 /*  global classes */
-
+.linkcolor {
+  color: rgb(65, 91, 236);
+}
+.link-text {
+  border-bottom: rgb(65, 91, 236) solid 1px;
+  margin-bottom: 8px;
+}
 .btn,
 .btn-danger {
   text-transform: uppercase;
@@ -159,6 +165,7 @@ p {
   text-align: center;
   margin: 3rem auto;
 }
+
 /* section */
 .page-center {
   width: 90vw;
