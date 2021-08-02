@@ -1,0 +1,167 @@
+---
+title: Gatsby.JsのGoogle Analytics(GA4)導入方法
+slug: analytics
+image: ./images/gatsby.png
+date: 2021-08-02
+author: カニヤ
+category: ['Gatsby', 'ブログ']
+readTime: 20
+---
+
+### 手順
+
+---
+
+1.  gatsby-plugin-google-gtag をインストール
+
+2.  gatsby-config.js に設定
+
+3.  Netlify の環境設定（Netlify を使っている場合）
+
+<br />
+
+### 1. gatsby-plugin-google-gtag をインストール
+
+---
+
+<br />
+
+`npm install gatsby-plugin-google-gtag`
+
+**gatsby-plugin-google-analytics**もあります。<br/>
+しかし、**GA4 だと正常に動作しない**ことがある。
+
+なので、新しい**gatsby-plugin-google-gtag**を使うことを**勧めます。**
+
+### 2. gatsby-config.js に設定
+
+---
+
+<br />
+
+**この設定が一番重要です！**<br/>
+わたしは初心者という事もあって、<br/>
+**この設定をミスり 5 日間ぐらい悪戦苦闘。**
+
+そのため、**皆さんには同じ目に遭ってほしくない。**<br/>
+その思いでこの記事を書きました。
+
+```js
+plugins: [
+  {
+    resolve: 'gatsby-plugin-google-gtag',
+    options: {
+      trackingIds: ['ここに自分の測定IDを書く'],
+      pluginConfig: {
+        head: true,
+      },
+    },
+  },
+]
+```
+
+head 内にタグを置かないといけないので、<br/>
+**head:true と書く。**
+
+また、plugins の一番上に書いた方が、<br/>
+確実な気がする。（＊これは確かではない）
+
+**trackingIds は Google Analytics の測定 ID**を<br/>
+直接渡すのが一番簡単。
+
+しかし、それではセキュリティ上良くないので、<br/>
+わたしは**dotenv**を使うことを**勧める。**
+
+インストール
+
+`npm install dotenv`
+
+**gatsby は.env.development と.env.production** で<br/>
+**開発環境と実行環境**で.env ファイルを分けて作ることができる。
+
+そのため、gatsby-config.js と同じ階層化に 2 つの.env ファイルを作る。
+
+**.development は開発環境のみ**参照されるので、<br/>
+今回の gtag は、実行環境下でしか動かない。<br/>
+なので、値は何でもいいです。
+
+```env
+GA_ID = 'test'
+```
+
+**.production は実行環境**で参照されるため、<br/>
+自分の Google Analytics の測定 ID を書きます。
+
+```env
+GA_ID = 'ここに自分の測定IDを書く'
+```
+
+次に gatsby-config.js に戻り、<br/>
+**ファイルの一番上**に dotenv を書き、ID を書き換える。
+
+```js
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+plugins: [
+  {
+    resolve: 'gatsby-plugin-google-gtag',
+    options: {
+      trackingIds: [process.env.GA_ID],
+      pluginConfig: {
+        head: true,
+      },
+    },
+  },
+]
+```
+
+わたしは**始め"process.env.GA_ID"**と書いて、<br/>
+上手くいかず、時間を無駄にしました。
+
+**当たり前ですが["process.env.GA_ID"]にすると**、<br/>
+trackingIds に**process.env.GA_ID という文字列**を渡したことになり、
+
+.production で書いた**Google Analytics の測定 ID は読み込まれません！**
+
+そのため、先ほどの.production で **GA_ID="自分の測定 ID"と**書いたのです。
+
+そうすれば trackingIds に正しく**測定 ID の文字列**を渡すことができます。
+
+**心配な人**は gatsby-config.js に
+
+```js
+cosole.log(process.env.GA_ID)
+```
+
+と書き、開発環境で動かしてみてください。<br/>
+おそらく、**"test"**と表示されると思います。
+
+**正直この設定さえ間違えなければ、あとは簡単です。**
+
+### 3. Netlify の環境設定（Netlify を使っている場合）
+
+---
+
+<br />
+
+Netlify で → Site settings → Build &deploy → Environment と開く。
+
+そこの**Edit variables**を押し、<br/>
+**key: GA_ID, value: Google Analytics の測定 ID**<br/>
+と入力して、**save**を押して完了。
+
+### おわりに
+
+---
+
+<br />
+
+あとはデプロイして**1 日**待てば、<br/>
+Google Analytics が機能しています。
+
+Google Analytics を導入するのが、<br/>
+**初めてということもあり**、時間が掛かってしまいました。<br/>
+しかし、色々学ぶことができたので、<br/>
+**良い**とします。
