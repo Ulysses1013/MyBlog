@@ -129,6 +129,12 @@ p {
   border-bottom: rgb(65, 91, 236) solid 1px;
   margin-bottom: 8px;
 }
+.line {
+  font-weight: bold;
+}
+.line-marker {
+  background: linear-gradient(transparent 70%, #ffff7f 0%);
+}
 .btn,
 .btn-danger {
   text-transform: uppercase;

@@ -4,7 +4,7 @@ slug: analytics
 image: ./images/gatsby.png
 date: 2021-08-02
 author: カニヤ
-category: ['Gatsby', 'ブログ']
+category: ['Gatsby', 'Blog']
 readTime: 20
 ---
 
@@ -39,8 +39,9 @@ readTime: 20
 
 <br />
 
-**この設定が一番重要です！**<br/>
-わたしは初心者という事もあって、<br/>
+<span className="line line-marker">この設定が一番重要です！</span>
+
+わたしは初心者という事もあって、
 **この設定をミスり 5 日間ぐらい悪戦苦闘。**
 
 そのため、**皆さんには同じ目に遭ってほしくない。**<br/>
@@ -63,14 +64,11 @@ plugins: [
 head 内にタグを置かないといけないので、<br/>
 **head:true と書く。**
 
-また、plugins の一番上に書いた方が、<br/>
-確実な気がする。（＊これは確かではない）
-
 **trackingIds は Google Analytics の測定 ID**を<br/>
-直接渡すのが一番簡単。
+直接渡すのが一番簡単。<br/>
+しかし、それではセキュリティ上良くないので、
 
-しかし、それではセキュリティ上良くないので、<br/>
-わたしは**dotenv**を使うことを**勧める。**
+<span className="line line-marker">わたしはdotenvを使うことを勧める。</span>
 
 インストール
 
@@ -123,7 +121,9 @@ plugins: [
 **当たり前ですが["process.env.GA_ID"]にすると**、<br/>
 trackingIds に**process.env.GA_ID という文字列**を渡したことになり、
 
-.production で書いた**Google Analytics の測定 ID は読み込まれません！**
+<span className="line line-marker">
+  .production で書いたGoogle Analytics の測定 ID は読み込まれません！
+</span>
 
 そのため、先ほどの.production で **GA_ID="自分の測定 ID"と**書いたのです。
 

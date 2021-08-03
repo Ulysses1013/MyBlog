@@ -28,7 +28,14 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
-    'gatsby-plugin-robots-txt',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://mecablog.netlify.app',
+        sitemap: 'https://mecablog.netlify.app/sitemap/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -58,7 +65,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `MecaBlog`,
-        short_name: `Blog`,
+        short_name: `MecaBlog`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
