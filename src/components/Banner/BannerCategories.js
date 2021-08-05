@@ -24,5 +24,8 @@ const Wrapper = styled.div`
   .category:hover {
     background: var(--clr-grey-10);
   }
+  .categories {
+    list-style-type: none;
+  }
 `
 export default BannerCategories

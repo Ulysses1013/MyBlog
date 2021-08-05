@@ -164,6 +164,7 @@ const Wrapper = styled.section`
   .prev {
     text-align: left;
     display: grid;
+    margin-top: 20px;
   }
   .next {
     text-align: right;

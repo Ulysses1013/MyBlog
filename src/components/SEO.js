@@ -20,7 +20,12 @@ import React from "react"
      <Helmet
        htmlAttributes={{ lang: "ja" }}
        title={`${title} | ${site.siteMetadata.title}`}
-       meta={[{ name: `description`, content: metaDescription }]}
+       meta={[
+         { name: `description`, content: metaDescription },
+         { property: `og:title`, content: title},
+         { property: `og:description`, content: description},
+         { property: `og:type`, content: `website`},
+        ]}
      ></Helmet>
    )
  }

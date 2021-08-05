@@ -21,6 +21,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

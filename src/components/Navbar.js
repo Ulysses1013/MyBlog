@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { FaBars } from 'react-icons/fa'
 
 import Links from '../constants/links'
-import SocialLinks from '../constants/socialLinks'
+
 const Navbar = ({ toggle }) => {
   return (
     <nav className="navbar">
@@ -17,7 +17,7 @@ const Navbar = ({ toggle }) => {
           </button>
         </div>
         <Links styleClass="nav-links" />
-        <SocialLinks styleClass="nav-icons" />
+        
       </div>
     </nav>
   )

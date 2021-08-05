@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     color: var(--clr-grey-3);
     text-transform: uppercase;
     font-weight: 500;
-    background: var(--clr-white);
+    background: #f7f7f7;
     display: inline-block;
     margin-bottom: 0;
     padding: 0 0.6rem;
