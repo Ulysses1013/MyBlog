@@ -111,6 +111,15 @@ td {
 td:first-child {
   background: #e9faf9;
 }
+ul,
+ol {
+  padding: 0.5em 0.5em 0.5em 1.5em;
+}
+ul li,
+ol li {
+  line-height: 1;
+  padding: 0.5em 0;
+}
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;

@@ -6,7 +6,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `MecaBlog`,
-    description: `日々のプログラミングの学習記録、また趣味の事を投稿します。`,
+    description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログです。`,
     author: `カニヤ`,
     siteUrl: `https://mecablog.netlify.app`,
   },
@@ -33,7 +33,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://mecablog.netlify.app',
-        sitemap: 'https://mecablog.netlify.app/sitemap/sitemap-index.xml',
+        sitemap: 'https://mecablog.netlify.app/sitemap/sitemap-0.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -68,10 +68,10 @@ module.exports = {
         name: `MecaBlog`,
         short_name: `MecaBlog`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#EEEEEE`,
+        theme_color: `#EEEEEE`,
         display: `minimal-ui`,
-        icon: `src/assets/horse-iron.png`, // This path is relative to the root of the site.
+        icon: `src/assets/myicon.png`, 
       },
     },
     {

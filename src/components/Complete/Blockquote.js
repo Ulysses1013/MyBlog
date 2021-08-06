@@ -42,13 +42,13 @@ const Blockquote = ({ children, display }) => {
 }
 const Wrapper = styled.blockquote`
   .container {
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem;
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     color: var(--clr-grey-1);
     border-left: 3px solid var(--clr-grey-5);
     position: relative;
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
   @media (min-width: 1170px) {
     .container {

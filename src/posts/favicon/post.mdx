@@ -1,0 +1,140 @@
+---
+title: Gatsby.jsのfavicon設定方法
+slug: favicon
+image: ./images/myfavi.png
+date: 2021-08-06
+author: カニヤ
+category: ['Gatsby', 'Blog']
+readTime: 10
+---
+
+import { Link } from 'gatsby'
+
+今回は**Gatsby.js での favicon の設定方法**を<br/>
+解説したいと思います。
+
+と言っても、
+
+<div className="ballon ballon-left">いきなりfaviconと言われても分からない</div>
+
+と言う人のために、<br/>
+はじめに**favicon**とは何か説明したいと思います。
+
+### favicon とは
+
+---
+
+<br />
+
+**タブ**表示した時や**ブックマーク**した時の<br />
+ページ名の横に付いている**アイコン**が<br />
+**favicon**です。
+
+![favicon](./images/tab.png)
+
+↑ 具体的に言うとこれの事です。
+
+### favicon 作成ツール
+
+---
+
+<br />
+
+やっぱり自分のブログなので、<br />
+オリジナルの**favicon**を作成した方が<br />
+**愛着**が持てます。
+
+なので、**favicon を自分で無料で作れるツール**を教えます。
+
+<span className="line line-yellow">おすすめするツールは favicon.io です。</span>
+<br />
+<br />
+
+<Link to="https://favicon.io/" className="linkcolor link-text">
+  https://favicon.io/
+</Link>
+<br />
+<br />
+
+**favicon.io おすすめポイント**
+
+<blockquote display="info">
+
+- 画像・テキスト・絵文字の３つから作成できる
+- 色・大きさ・フォントをカスタマイズできる
+- 無料
+
+</blockquote>
+
+個人的には**テキスト**から作成するのが、<br />
+一番簡単で良いと思います。
+
+他にも**favicon 作成ツール**はあるので、<br />
+自分に合ったものをぜひ探してみてください。
+
+### favicon 設定方法
+
+---
+
+<br />
+
+はじめにプラグインを**インストール**します。
+
+`npm install gatsby-plugin-manifest`
+
+次に gatsby-config.js に設定します。
+
+```js
+// in gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `GatsbyJS`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `faviconのあるファイルのパス`, //ここ
+      },
+    },
+  ],
+}
+```
+
+これで**gatsby ブログに favicon**を設定できました。
+
+### まとめ
+
+---
+
+<br />
+
+以上、gatsby.js の favicon 設定方法を紹介しました。
+
+自分のブログを持っている人は<br/>
+**favicon がある方**が、<br/>
+**オリジナリティ**があり良いと思うので、<br/>
+これを機にぜひ**自分だけの favicon**を作ってみてください。
+
+### 余談
+
+---
+
+<br />
+
+余談ですが、このブログの**パフォーマンス値**が<br />
+**オール 90**を越えました！
+
+![スコア](./images/level-up.png)
+
+今度は**オール 100**を目指してがんばりたいと思います。
+
+分析に使ったこの**LightHouse**は<br/>
+ブログの**パフォーマンス値**と**改善点**を<br/>
+教えてくれるので、<br/>
+**興味がある人**はぜひ使ってみてください。
+
+---

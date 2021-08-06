@@ -15,7 +15,7 @@ const CategoryTemplate = props => {
   } = props
   return (
     <Layout>
-      <Seo title="Category" />
+      <Seo title="Category" description="カテゴリー"/>
       <Posts posts={posts} title={`category / ${category}`} />
     </Layout>
   )

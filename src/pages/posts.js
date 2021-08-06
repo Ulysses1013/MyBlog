@@ -9,7 +9,7 @@ const PostsPage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <Seo title="Posts"/>
+      <Seo title="Posts" description="記事一覧" />
       <Posts posts={posts} title="all posts" />
     </Layout>
   )

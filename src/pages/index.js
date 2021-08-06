@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Home" description="ホーム"/>
       <Posts posts={posts} title="recently posts" />
     </Layout>
   )
