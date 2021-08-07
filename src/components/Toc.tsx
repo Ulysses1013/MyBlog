@@ -9,7 +9,7 @@ const Toc: React.FC<Props> = props => {
       <div className="toc__content">
         <ul>
             {props.items.map((item) => (
-                <li>
+                <li key={item.url}>
                     <Link to={item.url}>{item.title}</Link>
                     {item.items && (
                         <Toc items={item.items} />

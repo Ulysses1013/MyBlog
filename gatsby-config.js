@@ -38,31 +38,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-table-of-contents`,
-            options: {
-              exclude: "目次",
-              tight: true,
-              ordered: true,
-              fromHeading: 2,
-              toHeading: 4,
-              className: "table-of-contents"
-            },
-          },
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              icon:false,
-              elements: [`h2`,`h3`,`h4`],
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `MecaBlog`,
@@ -92,9 +67,18 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+              maintainCase: true,
+            },
+          },
+          { resolve: 'gatsby-remark-images' }
+        ],
       },
     },
-    
+    `gatsby-transformer-remark`,
   ],
 }
