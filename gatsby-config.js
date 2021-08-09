@@ -8,7 +8,7 @@ module.exports = {
     title: `MecaBlog`,
     description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログです。`,
     author: `カニヤ`,
-    siteUrl: `https://mecablog.netlify.app`,
+    siteUrl: `https://mecablog.netlify.app/`,
   },
   /* Your site config here */
   plugins: [
@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://mecablog.netlify.app',
+        host: 'https://mecablog.netlify.app/',
         sitemap: 'https://mecablog.netlify.app/sitemap/sitemap-0.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }

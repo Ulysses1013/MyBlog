@@ -8,7 +8,7 @@ const Navbar = ({ toggle }) => {
   return (
     <nav className="navbar">
       <div className="nav-center">
-        <div className="nav-header">
+        <div className="nav-header" id="top">
           <Link to="/" className="nav-title">
             MecaBlog
           </Link>

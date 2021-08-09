@@ -724,3 +724,7 @@ Footer
   text-transform: uppercase;
   letter-spacing: var(--spacing);
 }
+.back-top {
+  color: rgb(26, 115, 232);
+  font-size: 1rem;
+}
