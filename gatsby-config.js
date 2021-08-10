@@ -13,7 +13,7 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
-      resolve: "gatsby-plugin-google-gtag",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [process.env.GOOGLE_ANALYTICS_ID],
         pluginConfig: {
@@ -28,12 +28,17 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve:`gatsby-plugin-sitemap`,
       options: {
-        host: 'https://mecablog.netlify.app/',
-        sitemap: 'https://mecablog.netlify.app/sitemap/sitemap-0.xml',
+        excludes: [`/posts`,`/contact`,`/success`,`/category/*`]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://mecablog.netlify.app/`,
+        sitemap: `https://mecablog.netlify.app/sitemap/sitemap-0.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -75,7 +80,7 @@ module.exports = {
               maintainCase: true,
             },
           },
-          { resolve: 'gatsby-remark-images' }
+          { resolve: `gatsby-remark-images` }
         ],
       },
     },

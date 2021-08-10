@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Tags from './Tags'
 
-const Post = ({ excerpt, frontmatter }) => {
+const Post = ({ frontmatter }) => {
   const { title, image, slug, date, category, readTime } = frontmatter
   return (
     <Wrapper>
@@ -15,10 +15,10 @@ const Post = ({ excerpt, frontmatter }) => {
         <Tags category={category} />
         
         <Link to={`/posts/${slug}`} className="link"><h3>{title}</h3></Link>
-        <div className="underline"></div>
-        <p>{excerpt}</p>
-        <Link to={`/posts/${slug}`} className="link">
-          続きを読む <IoMdArrowRoundForward />
+        
+        
+        <Link to={`/posts/${slug}`} className="more-link">
+          READ MORE <IoMdArrowRoundForward />
         </Link>
         <footer>
           <span className="date">
@@ -33,14 +33,14 @@ const Post = ({ excerpt, frontmatter }) => {
 }
 
 const Wrapper = styled.article`
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   .info {
     text-align: center;
   }
   .img {
     margin-bottom: 1rem;
     border-radius: var(--radius);
-    height: 17rem;
+    height: 15rem;
   }
   .category {
     display: inline-block;
@@ -85,11 +85,25 @@ const Wrapper = styled.article`
   }
   .link:hover {
     border-color: var(--clr-primary-8);
-    color: #1558d6;
+    color: #0515dd;
+  }
+  .more-link {
+    color: var(--clr-black);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: 0.25rem;
+      font-size: 1.2rem;
+    }
+  }
+  .more-link:hover {
+    color: #5a6876;
   }
   footer {
-    margin-top: 2rem;
-    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
     border-top: 1px solid #74787e;
     display: flex;
     align-items: center;
@@ -118,14 +132,14 @@ const Wrapper = styled.article`
   @media (min-width: 992px) {
     & {
       display: grid;
-      grid-template-columns: 30rem 1fr;
+      grid-template-columns: 20rem 1fr;
       column-gap: 1.5rem;
       .info {
         text-align: left;
       }
       .img {
-        height: 100%;
-        max-height: 20rem;
+        height: 80%;
+        max-height: 15rem;
       }
       .underline {
         margin-left: 0;

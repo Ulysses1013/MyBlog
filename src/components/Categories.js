@@ -18,7 +18,7 @@ const Categories = () => {
       {distinct.map((category, index) => {
         return (
           <li key={index}>
-            <Link to={`/${category}`} className="category">
+            <Link to={`/category/${category}`} className="category">
               {category}
             </Link>
           </li>

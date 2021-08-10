@@ -3,8 +3,9 @@ import Seo from '../components/SEO'
 import Layout from '../components/Layout'
 import Posts from '../components/Posts'
 import { graphql } from 'gatsby'
+import Pagenation from '../components/Pagenation'
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data,pageContext }) => {
   const {
     allMdx: { nodes: posts },
   } = data
@@ -12,13 +13,18 @@ const IndexPage = ({ data }) => {
     <Layout>
       <Seo title="Home" description="ホーム"/>
       <Posts posts={posts} title="recently posts" />
+      <Pagenation pageContext={pageContext} />
     </Layout>
   )
 }
 
 export const query = graphql`
-  {
-    allMdx(limit: 4, sort: { fields: frontmatter___date, order: DESC }) {
+  query($skip: Int!,$limit: Int!) {
+    allMdx(
+      limit: $limit
+      skip: $skip
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       nodes {
         excerpt
         frontmatter {

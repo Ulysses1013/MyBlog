@@ -1,8 +1,11 @@
 const path = require('path')
+const { paginate } = require("gatsby-awesome-pagination");
 
 // create pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
+  const template = path.resolve(`src/templates/index.js`);
+
   const result = await graphql(`
     {
       allMdx {
@@ -18,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
@@ -25,7 +29,17 @@ exports.createPages = async ({ graphql, actions }) => {
     )
     return
   }
-  const pages = result.data.allMdx.nodes
+
+  const pages = result.data.allMdx.nodes;
+
+  paginate({
+    createPage,
+    items: pages,
+    itemsPerPage: 5,
+    component: template,
+    pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? "/" : "/page"),
+  });
+
   pages.forEach(( node, index) => {
     const prev = index === 0 ? null : pages[index - 1].id
     const next = index === pages.length - 1 ? null : pages[index + 1].id
@@ -43,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.categories.distinct.forEach(category => {
     createPage({
-      path: `/${category}`,
+      path: `/category/${category}`,
       component: path.resolve(`src/templates/category-template.js`),
       context: {
         category,

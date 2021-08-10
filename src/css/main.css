@@ -334,9 +334,6 @@ Navbar
     list-style-type: none;
   }
   .page-link {
-    margin-right: 1rem;
-  }
-  .page-link {
     color: var(--clr-black);
     font-weight: 500;
     letter-spacing: var(--spacing);
@@ -346,6 +343,7 @@ Navbar
     cursor: pointer;
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
+    margin-right: 1rem;
   }
   .page-link:hover {
     background: black;

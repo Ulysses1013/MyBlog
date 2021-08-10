@@ -1,0 +1,131 @@
+---
+title: 【Gatsby.js】Paginationの実装方法
+slug: pagenation
+image: ./images/next.jpg
+date: 2021-08-10
+author: カニヤ
+category: ['Gatsby', 'Blog']
+readTime: 8
+---
+
+import { Link } from 'gatsby'
+
+どうもカニヤです！
+
+この前は**MDX 記事の目次の付け方**を解説しました。
+
+<span className="line line-yellow">☑あわせて読みたい</span>
+<br />
+<br />
+
+<Link to="/posts/toc" className="linkcolor link-text">
+  ［Gatsby.js］MDX記事の目次の付け方
+</Link>
+<br />
+<br />
+
+今回は**Gatsby.js の Pagination の実装方法**<br/>
+を解説したいと思います。
+
+### プラグインのインストール
+
+---
+
+<br />
+
+**npm install gatsby-awesome-pagination**
+
+### gatsby-node.js の設定
+
+---
+
+<br />
+
+```js
+// 読み込み
+const { paginate } = require('gatsby-awesome-pagination')
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const pages = result.data.allMdx.nodes
+
+  // ページネーションの作成
+  paginate({
+    createPage,
+    items: pages, // ページ情報配列
+    itemsPerPage: 5, // 1ページに表示する記事数
+    component: path.resolve(`src/templates/index.js`), // 作成するファイルのパスを書く
+    pathPrefix: '/page', // ページのパス
+  })
+}
+```
+
+上記のように**gatsby-node.js**に設定する。
+
+### index.js の編集
+
+---
+
+```js
+export const pageQuery = graphql`
+  query ($skip: Int!, $limit: Int!) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      skip: $skip 
+      limit: $limit 
+    ) {
+      ...
+    }
+  }
+`
+```
+
+次に**src/templates/index.js のクエリ**を編集して、<br/>
+**pageContext**を使用できるようにする。
+
+```js
+const IndexBlog = ({ data, pageContext }) => {
+  const {
+    allMdx: { nodes: posts },
+  } = data
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <Posts posts={posts} />
+      <div>
+        <Link to={pageContext.previousPagePath}> ＜　</Link>　//前のページ
+        <Link to={pageContext.nextPagePath}>　＞　</Link>　//次のページ
+      </div>
+    </Layout>
+  )
+}
+```
+
+そして、**pageContext**を渡し、<br/>
+**前のページ・次のページのリンク**を追加する。
+
+あとは**自分のお好みで CSS**を当てて、<br/>
+完成です！
+
+### まとめ
+
+---
+
+<br />
+
+以上、**Gatsby ブログの Pagination の実装方法**を解説しました。
+
+今回は**ページネーション**の事だけだったので、<br/>
+短い記事になりました。
+
+これからもこんな感じで、<br/>
+**機能を追加したら**記事にしていきたいと思います。
+
+<Link to="/category/Gatsby" className="linkcolor link-text">
+  関連記事はこちら
+</Link>
+<br />
+<br />
+
+---

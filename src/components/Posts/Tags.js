@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 const Tag = ({ tag }) => (
   <>
-    <Link to={`/${tag}`} className="category"><span>{tag}</span></Link>
+    <Link to={`/category/${tag}`} className="category"><span>{tag}</span></Link>
   </>
 );
 
