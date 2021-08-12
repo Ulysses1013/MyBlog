@@ -18,6 +18,7 @@ const About = () => {
       />
       <p>
         現在大学生のカニヤです。日々のプログラミングの学習記録を投稿します。
+        趣味：映画観賞　好きな映画監督：クリストファー・ノーラン
       </p>
       <SocialLinks styleClass="banner-icons"></SocialLinks>
     </Wrapper>

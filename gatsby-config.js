@@ -6,7 +6,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `MecaBlog`,
-    description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログです。`,
+    description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログ。`,
     author: `カニヤ`,
     siteUrl: `https://mecablog.netlify.app/`,
   },
@@ -31,14 +31,15 @@ module.exports = {
     {
       resolve:`gatsby-plugin-sitemap`,
       options: {
-        excludes: [`/posts`,`/contact`,`/success`,`/category/*`]
+        output: `/`,
+        excludes: [`/posts`,`/contact`,`/success`,`/category/*`,`/page/*`]
       }
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://mecablog.netlify.app/`,
-        sitemap: `https://mecablog.netlify.app/sitemap/sitemap-0.xml`,
+        sitemap: `https://mecablog.netlify.app/sitemap-0.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
