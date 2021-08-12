@@ -5,7 +5,7 @@ import Posts from '../components/Posts'
 import { graphql } from 'gatsby'
 import Pagenation from '../components/Pagenation'
 
-const IndexPage = ({ data,pageContext }) => {
+const IndexPage = ({ data, pageContext }) => {
   const {
     allMdx: { nodes: posts },
   } = data

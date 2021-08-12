@@ -23,7 +23,7 @@ const PostTemplate = ({ data }) => {
     <Layout>
       <Seo title={title} description={excerpt}/>
       <Wrapper>
-        {/* post info */}
+        
         <article>
           <GatsbyImage
             image={getImage(image)}
@@ -71,7 +71,7 @@ const PostTemplate = ({ data }) => {
           </div>
         </article>
 
-        {/* banner component */}
+        
         <article>
           <Banner />
         </article>

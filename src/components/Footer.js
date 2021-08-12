@@ -5,8 +5,16 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div>
+        <ul className="nav-links">
+          <li className="foot-bar">
+            <Link to="#top" className="foot-link">△TOP</Link>
+          </li>
+          <li className="foot-bar">
+            <Link to="/privacy-policy" className="foot-link">プライバシーポリシー＆免責事項</Link>
+          </li>
+        </ul>
+        
         <p>&copy;{new Date().getFullYear()} MecaBlog. All rights reserved.</p>
-        <Link to="#top" className="back-top">△TOP</Link>
       </div>
     </footer>
   )

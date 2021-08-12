@@ -722,7 +722,11 @@ Footer
   text-transform: uppercase;
   letter-spacing: var(--spacing);
 }
-.back-top {
-  color: rgb(26, 115, 232);
+.foot-bar {
+  border-right: white 1px solid;
+}
+.foot-link {
+  color: white;
   font-size: 1rem;
+  margin: 0.5rem;
 }
