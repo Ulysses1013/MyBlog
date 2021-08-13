@@ -32,7 +32,7 @@ module.exports = {
       resolve:`gatsby-plugin-sitemap`,
       options: {
         output: `/`,
-        excludes: [`/posts`,`/contact`,`/success`,`/category/*`,`/page/*`]
+        excludes: [`/posts`,`/contact`,`/success`,`/category/*`,`/page/*`,`/privacy-policy`]
       }
     },
     {
