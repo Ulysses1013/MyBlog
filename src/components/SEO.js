@@ -26,7 +26,7 @@ import React from "react"
          { name: `description`, content: metaDescription },
          {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}/assets/myicon.png`,
+          content: `${site.siteMetadata.siteUrl}assets/myicon.png`,
          },
          { property: `og:description`, content: description},
          { property: `og:title`, content: title},
@@ -46,6 +46,10 @@ import React from "react"
          {
           name: `twitter:description`,
           content: metaDescription,
+         },
+         {
+          name:"twitter:image",
+          content:`${site.siteMetadata.siteUrl}assets/myicon.png`,
          },
         ]}
      ></Helmet>

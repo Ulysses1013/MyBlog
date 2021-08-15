@@ -31,15 +31,14 @@ module.exports = {
     {
       resolve:`gatsby-plugin-sitemap`,
       options: {
-        output: `/`,
-        excludes: [`/posts`,`/contact`,`/success`,`/category/*`,`/page/*`,`/privacy-policy`]
+        exclude: [`/posts`,`/contact`,`/success`,`/category/*`,`/page/*`,`/privacy-policy`]
       }
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://mecablog.netlify.app/`,
-        sitemap: `https://mecablog.netlify.app/sitemap-0.xml`,
+        sitemap: `https://mecablog.netlify.app/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },

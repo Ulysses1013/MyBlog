@@ -1,0 +1,177 @@
+---
+title: 【入門】tailwindcssの使い方
+slug: tailwindcss
+image: ./images/design.png
+date: 2021-08-15
+author: カニヤ
+category: ['It']
+readTime: 8
+---
+
+import { Link } from 'gatsby'
+
+どうもカニヤです。
+
+皆さんは**CSS を書いている時**に<br/>
+この様なことで**悩んだこと**ありませんか？
+
+<div className="ballon ballon-left">ここに当ててるCSSどこに書いたっけ？</div>
+<br />
+
+<div className="ballon ballon-right">flexってどうやって書くんだっけ？</div>
+
+わたしは css をしばらく使わないと<br/>
+細かい所を忘れたりします。
+
+そんな中、話題になっている**tailwindcss**を<br/>
+実際に使ってみました。
+
+そしたら、わたしは**先ほど挙げた悩み**を<br/>
+**全て解決**できました。
+
+なので、今回は**この tailwindcss の使い方**を解説したいと思います。
+
+この記事を読めば<br/>
+**あなたは tailwindcss がどういうもの**で、<br/>
+**何が優れているのか**分かります。
+
+### tailwindcss とは
+
+---
+
+<br />
+
+**tailwindcss は**簡単に言うと<br/>
+**独自の utility class**を使用して,<br/>
+**直接 HTML にスタイルを設定できる**CSS。
+
+と言っても、**いまいちピンとこない**と思うので、<br/>
+実際にコードをこれからお見せします。
+
+### tailwindcss インストール方法
+
+---
+
+<br />
+
+tailwindcss は**bootstrap のように**<br/>
+**link タグ**を書くことで使えるやり方もありますが、<br/>
+
+<font color="red">注意！</font>このやり方は公式で推奨されていません!
+
+```html
+<link
+  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
+```
+
+ですから、**公式が勧めている。**
+
+<span className="line line-yellow">
+  npm 経由で tailwindcss をインストールしましょう。
+</span>
+
+```terminal
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+### tailwindcss 使い方
+
+---
+
+<br />
+
+**CSS の場合**
+
+```html
+<p>Hello world</p>
+```
+
+```css
+p {
+  color: red;
+  border: 1px solid black;
+}
+```
+
+**tailwindcss の場合**
+
+```html
+<p class="text-red-600 border-black ">Hello world</p>
+```
+
+これで通常の CSS と**同じスタイル**が適用されます。
+
+tailwindcss ではこのように**CSS ファイルを作ることなく**、<br/>
+**直接 HTML にスタイル**を書くことができます。
+
+`text-red-600 border-black`
+
+これが先ほど言った**utility class**です。
+
+**コード量が少ない**とあまり**便利さ**が実感できませんが、
+
+**コード量が増えるほど**<span className="line line-yellow">tailwindcss の凄み</span>が分かると思います。
+
+はじめは**utility class の書き方**に慣れないと思うので、
+
+**全てのコード**が書かれた**チートシートを使うこと**を勧めます。
+
+<Link
+  to="https://nerdcave.com/tailwind-cheat-sheet"
+  className="linkcolor link-text"
+>
+  tailwindcssチートシートはこちら
+</Link>
+<br />
+<br />
+
+### 他との比較
+
+---
+
+<br />
+
+|                | bootstrap | tailwindcss |  css |
+| :------------- | :-------: | :---------: | ---: |
+| カスタマイズ性 |     △     |      ○      |    ◎ |
+| コード量       |  少ない   |    普通     | 多い |
+
+<br />
+<br />
+
+tailwindcss を**他と簡単に比較する**と、<br/>
+このような表になります。
+
+**カスタマイズ性は bootstrap よりあり**、<br/>
+**コード量は CSS より少ない**ので、<br/>
+**tailwindcss**は**両方の中間**に位置します。
+
+なので、**アニメーションなど付けてデザイン性を求める場合**は<font color="orange">CSS</font>。<br/>
+**簡単にデザインしたい場合**は<font color="green">bootstrap</font>。
+
+**それ以外の場合**は<font color="blue">tailwindcss</font>を使うのが、<br/>
+良いと個人的に思います。
+
+### まとめ
+
+---
+
+<br />
+
+今回**tailwindcss の使い方**を紹介しました。
+
+まだ**流行り始めた**ばかりで、<br/>
+**使っている人**は多くありません。
+
+なので、<span className="line line-yellow">今がパイオニアになるチャンスです！</span>
+
+一緒に**tailwindcss マスター**になりましょう。（笑）
+
+**冗談**はさておき、
+
+tailwindcss は**これから伸びる**と思うので、<br/>
+興味がある人は**今のうちに学ぶのが良い**と思います。
+
+---
