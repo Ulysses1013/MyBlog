@@ -1,11 +1,11 @@
 ---
 title: 【入門】tailwindcssの使い方
 slug: tailwindcss
-image: ./images/design.png
+image: ./images/tailwindcss.png
 date: 2021-08-15
 author: カニヤ
 category: ['It']
-readTime: 8
+readTime: 10
 ---
 
 import { Link } from 'gatsby'
@@ -48,7 +48,7 @@ import { Link } from 'gatsby'
 と言っても、**いまいちピンとこない**と思うので、<br/>
 実際にコードをこれからお見せします。
 
-### tailwindcss インストール方法
+### tailwindcss 設定方法
 
 ---
 
@@ -74,7 +74,42 @@ tailwindcss は**bootstrap のように**<br/>
 
 ```terminal
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+npx tailwindcss init
 ```
+
+css ファイルを書き換えます。
+
+```css
+/* ./your-css-folder/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+そして、app.js にインポートする。
+
+```js
+// app.js
+import 'tailwindcss/tailwind.css'
+```
+
+最後に config.js に追加します。
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: ['./src/**/*.html', './src/**/*.js'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+これで Tailwindcss の設定は完了です。
 
 ### tailwindcss 使い方
 

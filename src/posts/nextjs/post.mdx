@@ -1,0 +1,206 @@
+---
+title: 【入門】nextjs + tailwindcssの始め方
+slug: nextjs
+image: ./images/nextjs.png
+date: 2021-08-16
+author: カニヤ
+category: ['It']
+readTime: 15
+---
+
+import { Link } from 'gatsby'
+
+どうもカニヤです。
+
+突然ですが皆さんは**Nextjs**を知っていますか？
+
+<div className="ballon ballon-left">
+  名前は知っているけど、どういうものか分からない？
+</div>
+<br />
+
+<div className="ballon ballon-right">
+  NextjsとNuxtjsって名前似てるけど違うの？
+</div>
+
+**この様な疑問を抱いている人**は少なくないと思います。
+
+そういった**疑問を解決**できるように<br/>
+この記事を書きました。
+
+この記事を読めば、**Nextjs とはどういうものか**。<br/>
+また、**Nextjs の始め方**が分かります。
+
+関連記事：<Link to="/posts/tailwindcss" className="linkcolor link-text">【入門】tailwindcss の使い方</Link>
+
+### nextjs とは
+
+---
+
+<br />
+
+<font color="blue">Nextjs</font>はReactベースのフレームワーク。
+
+ちなみに名前の似ている<font color="green">Nuxtjs</font>は**Vuejs ベースのフレームワーク**です。
+
+**特徴的な機能**
+
+<blockquote display="info">
+
+- クライアント・サイド・レンダリング（CSR）と静的サイトジェネレータ（SSG)を使える
+- pre-rendering（HTML を事前に生成）できる
+
+</blockquote>
+
+**CSR**はクライアントの操作で動的に画面が変わるサイトに使われる。<br/>
+例：動画配信サイト
+
+**SSG**はその名の通り静的なサイトに使われる。<br/>
+例：ブログ
+
+**pre-rendering**は事前に HTML を読み込むので、<br/>
+**SEO で高く評価されます。**そこが優れているポイントです。
+
+実際に Nextjs は**Netflix・Hulu・NIKE**などで使用されています。
+
+### nextjs の始め方
+
+---
+
+<br />
+
+<blockquote display="warning">
+
+今回は Nextjs の始め方なので、<br/>
+Node.js のインストール方法に関しては割愛します。
+
+ですから、あらかじめ Node.js が入っている前提で進めます。
+
+</blockquote>
+
+はじめに**プロジェクト**を立ち上げる。
+
+`npx create-next-app`
+
+↑**terminal**でこちらを実行します。
+
+読み込みが終わったら、下記で
+
+`npm run dev`
+
+**ブラウザ**を立ち上げる。
+
+**正常に立ち上がったら**完了です。
+
+### tailwindcss の設定
+
+---
+
+<br />
+
+今回は**tailwindcss でスタイル**を当てるので、<br/>
+まず**この２つ**をインストールします。
+
+```terminal
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+npx tailwindcss init -p
+```
+
+次に**config**に追記。
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+その次に**appjs**にインポートします。
+
+```js
+// pages/_app.js
+import '../styles/globals.css'
+import 'tailwindcss/tailwind.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+そして、最後に**globals.css**を書き換えます。
+
+```css
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+これで **Nextjs の Tailwindcss の設定**は完了です。
+
+### スタイルを当てる
+
+---
+
+<br />
+
+index.js を開き、**一番上の div タグだけ残し**全て消します。
+
+```jsx
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <h1>Hello World!</h1>
+    </div>
+  )
+}
+```
+
+h1 タグをつけ足す。
+
+そして、**styles.container**となっている所に<br/>
+**Tailwindcss**を書いていきます。
+
+```jsx
+export default function Home() {
+  return (
+    <div className="py-0 px-2  justify-center items-center flex flex-col min-h-screen">
+      <h1>Hello World!</h1>
+    </div>
+  )
+}
+```
+
+これで元々当てられていた**container**と<br/>
+**同じ見た目**になったと思います。
+
+### まとめ
+
+---
+
+<br />
+
+今回は**Nextjs + Tailwindcss の始め方**の解説をしました。
+
+Nextjs は**動画配信サービスや SNS サービスのようなもの**を<br/>
+作るのに秀でている。
+
+実際**Netflix・Hulu・NIKE**などの有名企業も使っています。
+
+**Nextjs,Tailwindcss も**ホットな技術です。<br/>
+そのため、これを機に**Nextjs**で何かしら作ってみるのも良いかもしれません。
+
+関連記事：<Link to="/posts/tailwindcss" className="linkcolor link-text">【入門】tailwindcss の使い方</Link>
+
+---
