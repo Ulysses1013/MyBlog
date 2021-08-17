@@ -10,14 +10,16 @@ import React from "react"
          description
          author
          siteUrl
+         image
        }
      }
    }
  `
  
- const Seo = ({ title, description }) => {
+ const Seo = ({ title, description, image }) => {
    const { site } = useStaticQuery(query)
    const metaDescription = description || site.siteMetadata.description
+   const metaImage = image || site.siteMetadata.image
    return (
      <Helmet
        htmlAttributes={{ lang: "ja" }}
@@ -26,7 +28,7 @@ import React from "react"
          { name: `description`, content: metaDescription },
          {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}assets/myicon.png`,
+          content: `${site.siteMetadata.siteUrl}${metaImage}`,
          },
          { property: `og:description`, content: description},
          { property: `og:title`, content: title},
@@ -49,7 +51,7 @@ import React from "react"
          },
          {
           name:"twitter:image",
-          content:`${site.siteMetadata.siteUrl}assets/myicon.png`,
+          content:`${site.siteMetadata.siteUrl}${metaImage}`,
          },
         ]}
      ></Helmet>

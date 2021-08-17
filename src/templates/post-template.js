@@ -21,7 +21,7 @@ const PostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={title} description={excerpt}/>
+      <Seo title={title} description={excerpt} image={image.publicURL}/>
       <Wrapper>
         
         <article>
@@ -100,6 +100,7 @@ export const query = graphql`
           }
         }
         image {
+          publicURL
           childImageSharp {
             gatsbyImageData
           }

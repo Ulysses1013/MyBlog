@@ -9,6 +9,7 @@ module.exports = {
     description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログ。`,
     author: `カニヤ`,
     siteUrl: `https://mecablog.netlify.app/`,
+    image: `/assets/myicon.png`,
   },
   /* Your site config here */
   plugins: [
