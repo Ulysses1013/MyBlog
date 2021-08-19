@@ -8,6 +8,7 @@ module.exports = {
     title: `MecaBlog`,
     description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログ。`,
     author: `カニヤ`,
+    twitterName: `@kaniya1357`,
     siteUrl: `https://mecablog.netlify.app/`,
     image: `/assets/myicon.png`,
   },

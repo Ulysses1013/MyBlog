@@ -1,6 +1,7 @@
 import React from "react"
- import { Helmet } from "react-helmet"
- import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
  
  const query = graphql`
    {
@@ -8,9 +9,9 @@ import React from "react"
        siteMetadata {
          title
          description
-         author
          siteUrl
          image
+         twitterName
        }
      }
    }
@@ -19,19 +20,18 @@ import React from "react"
  const Seo = ({ title, description, image }) => {
    const { site } = useStaticQuery(query)
    const metaDescription = description || site.siteMetadata.description
-   const metaImage = image || site.siteMetadata.image
+   const metaImage = `${site.siteMetadata.siteUrl}${image || site.siteMetadata.image}`
+
    return (
      <Helmet
        htmlAttributes={{ lang: "ja" }}
        title={`${title} | ${site.siteMetadata.title}`}
        meta={[
          { name: `description`, content: metaDescription },
-         {
-          property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${metaImage}`,
-         },
-         { property: `og:description`, content: description},
-         { property: `og:title`, content: title},
+         { name: `image`, content: metaImage },
+         { property: `og:image`, content: metaImage },
+         { property: `og:description`, content: description },
+         { property: `og:title`, content: title },
          { property: `og:type`, content: `website`},
          {
           name: `twitter:card`,
@@ -39,7 +39,7 @@ import React from "react"
          },
          {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.twitterName,
          },
          {
           name: `twitter:title`,
@@ -51,7 +51,7 @@ import React from "react"
          },
          {
           name:"twitter:image",
-          content:`${site.siteMetadata.siteUrl}${metaImage}`,
+          content: metaImage,
          },
         ]}
      ></Helmet>
@@ -59,3 +59,15 @@ import React from "react"
  }
  
  export default Seo
+
+ Seo.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+}
+
+Seo.defaultProps = {
+  title: null,
+  description: null,
+  image: null,
+}

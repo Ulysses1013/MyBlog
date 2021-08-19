@@ -232,7 +232,40 @@ ol li {
   text-align: center;
   margin: 3rem auto;
 }
+.abs {
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+.abs-red {
+  color: #e07487;
+  border: 2px solid #e07487;
+  border-radius: 5px;
+  padding: 0.7em 2em;
+  display: inline-block;
+  text-decoration: none;
+}
 
+.abs-blue {
+  color: #55a8dc;
+  border: 2px solid #55a8dc;
+  border-radius: 5px;
+  padding: 0.7em 2em;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.text-red {
+  color: #e07487;
+}
+.text-red:hover {
+  color: #b12e46;
+}
+.text-blue {
+  color: #55a8dc;
+}
+.text-blue:hover {
+  color: #1d6897;
+}
 /* section */
 .page-center {
   width: 90vw;
