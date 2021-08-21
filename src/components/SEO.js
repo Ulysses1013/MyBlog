@@ -50,7 +50,7 @@ import PropTypes from "prop-types"
           content: metaDescription,
          },
          {
-          name:"twitter:image",
+          name: `twitter:image`,
           content: metaImage,
          },
         ]}

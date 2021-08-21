@@ -17,7 +17,7 @@ const Post = ({ frontmatter }) => {
         <Link to={`/posts/${slug}`} className="link"><h3>{title}</h3></Link>
         
         
-        <Link to={`/posts/${slug}`} className="more-link">
+        <Link to={`/posts/${slug}`} className="more-link" aria-label="詳細ページへ">
           READ MORE <IoMdArrowRoundForward />
         </Link>
         <footer>

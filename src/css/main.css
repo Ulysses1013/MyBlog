@@ -266,6 +266,26 @@ ol li {
 .text-blue:hover {
   color: #1d6897;
 }
+.ude {
+  display: block;
+  text-align: center;
+}
+.ude-link a {
+  max-width: 180px;
+  border: 2px solid #5e8b6d;
+  color: #5e8b6d;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8em 2.5em;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+.ude-link a:hover {
+  background-color: #5e8b6d;
+  border-color: #5e8b6d;
+  color: #fff;
+}
+
 /* section */
 .page-center {
   width: 90vw;
