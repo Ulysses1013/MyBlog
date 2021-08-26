@@ -236,7 +236,7 @@ ol li {
   margin-left: 5px;
   margin-bottom: 15px;
 }
-.abs-red {
+.abs-red a {
   color: #e07487;
   border: 2px solid #e07487;
   border-radius: 5px;
@@ -245,7 +245,13 @@ ol li {
   text-decoration: none;
 }
 
-.abs-blue {
+.abs-red a:hover {
+  background-color: #e07487;
+  border-color: #e07487;
+  color: #fff;
+}
+
+.abs-blue a {
   color: #55a8dc;
   border: 2px solid #55a8dc;
   border-radius: 5px;
@@ -254,18 +260,12 @@ ol li {
   text-decoration: none;
 }
 
-.text-red {
-  color: #e07487;
+.abs-blue a:hover {
+  background-color: #55a8dc;
+  border-color: #55a8dc;
+  color: #fff;
 }
-.text-red:hover {
-  color: #b12e46;
-}
-.text-blue {
-  color: #55a8dc;
-}
-.text-blue:hover {
-  color: #1d6897;
-}
+
 .ude {
   display: block;
   text-align: center;

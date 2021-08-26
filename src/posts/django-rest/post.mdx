@@ -1,0 +1,136 @@
+---
+title: 【入門】Django REST Frameworkの始め方
+slug: drf
+image: ./images/server.png
+date: 2021-08-26
+author: カニヤ
+category: ['Python']
+readTime: 5
+---
+
+import { Link } from 'gatsby'
+
+どうもカニヤです。
+
+最近フロントエンドは**Nextjs や Gatsbyjs**を使っていて、<br/>
+**バックエンドのフレームワークを何にしようか**考えていました。
+
+こういう時は**海外**を参考にしようと思い、<br/>
+海外で**今バックエンドに使われているフレームワーク**を調べたら、<br/>
+**Django と Flask**が伸びていて、**1・2 番目**に使われていた。
+
+なので、**Python が好きなこと**もあり Django を選んだ。
+
+そして、React と合わせるために**Django REST Framework を使うこと**にした。
+
+そういうことで今回は**Django REST Framework の始め方**を紹介したいと思う。
+
+### はじめに
+
+---
+
+<br />
+
+**Django REST Framework**は、**WebAPI を構築するための優れたツールキット**です。
+
+**Django**については**こちらの記事**で解説してます。
+
+関連記事：<Link to="/posts/intro" className="linkcolor link-text">python の始め方!初心者の時に知りたかったこと</Link>
+
+<blockquote display="warning">
+
+あらかじめ **Python は入っていること**を前提に進めます。<br/>
+また、今回**仮想環境は Venv**を使います。
+
+</blockquote>
+
+### 1. 仮想環境構築
+
+---
+
+<br />
+
+はじめに**作業ディレクトリ**に移動して、**ターミナル**を開く。
+
+```terminal
+python3 -m venv venv
+```
+
+これで**仮想環境を構築**します。
+
+次に**仮想環境に入ります。**
+
+```terminal
+venv\Scripts\activate // windowsの場合
+
+source venv/bin/activate // macの場合
+```
+
+### 2. インストール
+
+---
+
+<br />
+
+そして、**必要なもの**をインストールします。
+
+```terminal
+pip install django
+pip install djangorestframework
+```
+
+他にも**色々便利なもの**がありますが、<br/>
+**チュートリアル**なのでこれだけにします。
+
+### 3. プロジェクト作成
+
+---
+
+<br />
+
+**プロジェクト**を作成します。
+
+```terminal
+django-admin startproject プロジェクト名
+
+django-admin startapp アプリ名
+```
+
+その後、**Settings.py**を開き、**rest_framework**を追加します。
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework', # ここ
+]
+```
+
+これで完了です！
+
+ここまでが**Django REST Framework を使い始めるまでの流れ**です。
+
+この後は**自分の作るもの**に合った<br/>
+**モジュールなどを作成していく事**になるので、
+
+今回はここまでにします。
+
+### まとめ
+
+---
+
+<br />
+
+今回は**Django REST Framework の始め方**を紹介しました。
+
+学習し始めたばかりなので、<br/>
+これから**理解をより深めていきたい**と思います。
+
+ある程度、理解が進んだら**記事を書きたい**と思うので、<br/>
+その時は**また読んでもらえる**と嬉しいです。
+
+---
