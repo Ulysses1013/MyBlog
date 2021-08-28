@@ -563,20 +563,18 @@ Single Pages
 .success-page,
 .error-page {
   min-height: calc(100vh - 7rem);
-  background: var(--clr-grey-10);
+  background: #f7f7f7;
 }
 .newsletter-page,
 .success-page,
 .error-page {
-  background: var(--clr-grey-10);
+  background: #f7f7f7;
   display: grid;
   place-items: center;
   text-align: center;
 }
 /* success page */
-.success-page {
-  background: var(--clr-primary-10);
-}
+
 .success-page h2 {
   margin-bottom: 1.5rem;
 }
@@ -601,11 +599,6 @@ Single Pages
   text-transform: initial;
   margin-bottom: 1rem;
 }
-.newsletter-page h4 {
-  text-transform: initial;
-  margin-bottom: 1.25rem;
-  color: var(--clr-grey-5);
-}
 .contact-form {
   display: flex;
   flex-wrap: wrap;
@@ -613,7 +606,8 @@ Single Pages
   align-items: center;
   flex-direction: column;
 }
-.form-control {
+.form-control,
+.form-textarea {
   padding: 0.5rem;
   border: 0.5px solid var(--clr-grey-9);
   border-right: transparent;
@@ -624,26 +618,9 @@ Single Pages
   width: 20rem;
 }
 .form-textarea {
-  padding: 0.5rem;
-  border: 0.5px solid var(--clr-grey-9);
-  border-right: transparent;
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  border-radius: var(--radius);
-  display: block;
-  width: 20rem;
   height: 15rem;
 }
-.submit-btn {
-  font-weight: 400;
-  text-transform: capitalize;
-  border-color: var(--clr-primary-5);
-  border-right: var(--clr-primary-5);
-}
-.submit-btn:hover {
-  border-color: var(--clr-primary-8);
-  border-right: var(--clr-primary-8);
-}
+
 @media screen and (min-width: 992px) {
   .form-control,
   .form-textarea {
@@ -656,10 +633,6 @@ Single Pages
   }
   input[type='email'] {
     border-right: none;
-  }
-  .submit-btn {
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
   }
 }
 

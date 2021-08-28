@@ -37,8 +37,8 @@ const Contact = () => {
               className="form-textarea"
               placeholder="こちらにお問い合わせ内容を入力してください"
               required
-            ></textarea>
-            <button type="submit" className="btn form-control submit-btn">
+            />
+            <button type="submit" className="btn form-control">
               送信
             </button>
           </form>
