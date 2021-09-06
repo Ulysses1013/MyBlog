@@ -2,7 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-
 module.exports = {
   siteMetadata: {
     title: `MecaBlog`,
@@ -24,10 +23,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: [`/privacy-policy`,`/contact`,`/success`]
+      },
+    },
+    {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://mecablog.netlify.app`,
-        sitemap: `https://mecablog.netlify.app/sitemap.xml`,
+        sitemap: `https://mecablog.netlify.app/sitemap/sitemap-0.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
