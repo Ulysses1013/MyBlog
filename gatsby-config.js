@@ -23,19 +23,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-netlify`,
-    {
-      resolve:`gatsby-plugin-sitemap`,
-      options: {
-        exclude: [`/contact`,`/success`,`/category/*`,`/privacy-policy`]
-      }
-    },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
@@ -44,6 +31,13 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

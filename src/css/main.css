@@ -362,15 +362,10 @@ Navbar
   display: none;
 }
 
-.facebook-icon {
-  color: #3b5998;
-}
 .twitter-icon {
   color: #00acee;
 }
-.dribble-icon {
-  color: #ea4c89;
-}
+
 @media screen and (min-width: 800px) {
   .toggle-btn {
     display: none;
@@ -412,7 +407,6 @@ Navbar
     margin-left: 0.5rem;
   }
   .nav-icons .social-icon:hover {
-    /* color: var(--clr-primary-5); */
     transform: translateY(-5px);
   }
 }
