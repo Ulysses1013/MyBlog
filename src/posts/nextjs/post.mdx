@@ -4,7 +4,7 @@ slug: nextjs
 image: ./images/nextjs.png
 date: 2021-08-16
 author: カニヤ
-category: ['It']
+category: ['Tailwind']
 readTime: 15
 ---
 
@@ -122,20 +122,6 @@ module.exports = {
   },
   plugins: [],
 }
-```
-
-その次に**appjs**にインポートします。
-
-```js
-// pages/_app.js
-import '../styles/globals.css'
-import 'tailwindcss/tailwind.css'
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default MyApp
 ```
 
 そして、最後に**globals.css**を書き換えます。
