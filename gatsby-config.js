@@ -8,10 +8,10 @@ module.exports = {
     description: `日々のプログラミングの学習記録、また趣味の事を投稿する。エンジニアブログ。`,
     author: `カニヤ`,
     twitterName: `@kaniya1357`,
-    siteUrl: `https://mecablog.netlify.app`,
+    siteUrl: `https://mecablog.netlify.app/`,
     image: `/mainImg.png`,
   },
-  /* Your site config here */
+  
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -25,15 +25,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: [`/privacy-policy`,`/contact`,`/success`]
+        excludes: [`/privacy-policy`,`/contact`,`/success`,`/page/*`]
       },
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://mecablog.netlify.app`,
+        host: `https://mecablog.netlify.app/`,
         sitemap: `https://mecablog.netlify.app/sitemap/sitemap-0.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
+        policy: [{ userAgent: `*`, allow: `/` }],
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,

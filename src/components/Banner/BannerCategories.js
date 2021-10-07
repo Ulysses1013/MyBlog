@@ -13,7 +13,7 @@ const BannerCategories = () => {
 const Wrapper = styled.div`
   .category {
     font-size: 1rem;
-    color: rgb(26, 115, 232);
+    color: #172CCA;
     text-transform: capitalize;
     display: block;
     padding: 0.5rem 0 0.5rem 1rem;

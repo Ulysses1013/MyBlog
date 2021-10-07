@@ -52,7 +52,7 @@ const Wrapper = styled.article`
     font-weight: 700;
     border-radius: var(--radius);
     letter-spacing: var(--spacing);
-    color: #5a6876;
+    color: #333A41;
   }
   h3 {
     font-weight: 400;
@@ -74,7 +74,7 @@ const Wrapper = styled.article`
     text-transform: uppercase;
     letter-spacing: var(--spacing);
     font-weight: 700;
-    color: #1a73e8;
+    color: #172CCA;
     padding-bottom: 0.1rem;
     display: flex;
     align-items: center;
@@ -85,7 +85,7 @@ const Wrapper = styled.article`
   }
   .link:hover {
     border-color: var(--clr-primary-8);
-    color: #0515dd;
+    color: #0418AF;
   }
   .more-link {
     color: var(--clr-black);
