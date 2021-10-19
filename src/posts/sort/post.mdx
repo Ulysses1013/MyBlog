@@ -1,0 +1,156 @@
+---
+title: 【Python】アルゴリズムとデータ構造 -（基本sort編）
+slug: sort
+image: ./images/sort.png
+date: 2021-10-19
+author: カニヤ
+category: ['Python']
+readTime: 12
+---
+
+import { Link } from 'gatsby'
+
+どうもカニヤです。
+
+私は**最近アルゴリズムとデータ構造**の学習をしています。
+
+**趣味でプログラミングをする分**にはアルゴリズムやデータ構造を意識することはないのですが、
+
+将来的に、**大規模なサービスの設計**に携わるようになったら**膨大なデータ**を扱うようになると思うので、<br/>
+今のうちに**効率的で無駄のないコード**が書けるように学習を始めました。
+
+今回はそんなアルゴリズムの中でも**ソート**を紹介します。
+
+**\この記事はこういう人におすすめ/**
+
+<blockquote display="info">
+
+- アルゴリズムを学習したことがない人
+- Python でデータ構造を学びたい人
+
+</blockquote>
+
+### 選択ソート
+
+---
+
+<br />
+
+はじめは**ソート**の中でも有名な**選択ソート**。
+
+最初に**コード全体**を見せて、**それを解説していく**という流れで紹介します。
+
+```python
+def selection_sort(numbers):
+    len_numbers = len(numbers)
+    for i in range(len_numbers):
+        min_index = i
+        for j in range(i + 1, len_numbers):
+            if numbers[min_index] > numbers[j]:
+                min_index = j
+
+        numbers[i], numbers[min_index] = numbers[min_index], numbers[i]
+
+    return numbers
+
+if __name__ == '__main__':
+    numbers=[2,1,5,3]
+    print(selection_sort(numbers)) #[1,2,3,5]
+```
+
+はじめにリストを受け取り、その**リストの長さを len_numbers**に代入します。（今回の場合、値は４）
+
+次にその長さ分**for ループ**を回して、**最初のループ**の所で**一番小さな値**を入れる min_index に i を代入。<br/>
+そして、その **i ＋１**してリストの長さ分 **2 つ目のループ**を回します。
+
+次に**ｉｆ文**で min_index の値の方が、ｊの値より**大きかったら**min_index にｊを代入する。<br/>
+その後、**ループから抜けて**、min_index に i の値、i に min_index の値を入れる。
+
+例：**min_index ＝０の場合**入っている値は２で、ｊの方の値が１なので、
+**min_index の値の方が大きい**ため、min_index ＝１とする。
+
+その後ループを回しても**１より小さい数はない**ので、min_index は最終的に１。
+
+```python
+numbers[i], numbers[min_index] = numbers[min_index], numbers[i] # i=0, min_index=1
+# numbers[0], numbers[1] = 1, 2     numbers=[1,2,5,3]
+```
+
+**1 巡目**はこのようになる。あとはこれを繰り替えすだけです。
+
+**選択ソートの解説**はこれで終わりです。
+
+### 挿入ソート
+
+---
+
+<br />
+
+```python
+def insertion_sort(numbers):
+    len_numbers = len(numbers)
+    for i in range(1, len_numbers):
+        tmp = numbers[i]
+        j = i - 1
+        while j >= 0 and numbers[j] > tmp:
+            numbers[j + 1] = numbers[j]
+            j -= 1
+        numbers[j + 1] = tmp
+
+    return numbers
+
+if __name__ == '__main__':
+    numbers=[3,1,6,5]
+    print(selection_sort(numbers)) #[1,3,5,6]
+```
+
+次に紹介するのは**挿入ソート**でこちらも有名です。
+
+こちらは先ほどの**選択ソート**と違い、**はじめのループを１**からスタートします。
+
+次に、**一時的に値を入れる**tmp（temporary の略語）に numbers[i]代入。
+また、1 から始まっているので、**1 つ前の値を見るため**にｊに**i - 1**したものを入れます。
+
+次に **while ループ**でｊが**0 以上** and ｊの値が tmp **より大きければ**、
+j ＋ 1 した場所にｊの値を代入して、ｊを－1 する。
+
+その後、**ループを抜けたら**j ＋ 1 した場所に tmp を代入。
+
+例：**1 巡目の場合**、tmp ＝１,ｊ＝０となる。
+そして、numbers[j]は３なので、**While の条件を満たす**ので下記のように処理されます。
+
+```python
+while j >= 0 and numbers[j] > tmp:
+        numbers[j + 1] = numbers[j] # numbers[1] = 3
+        j -= 1
+numbers[j + 1] = tmp # numbers[0] = 1, numbers = [1,3,6,5]
+```
+
+**最初のループ**はこのようになる。あとはこれを繰り返すだけです。
+
+これで**挿入ソートの解説**は終わりです。
+
+### まとめ
+
+---
+
+<br />
+
+今回は**基本のソートである選択ソート・挿入ソートの解説**をしました。
+
+アルゴリズムは**種類が多く、奥が深いもの**なので、<br/>
+**使いこなす**のはなかなか大変そうだと実感しました。
+
+しかし、これからも**学習を続ける**のでまた**新しいアルゴリズム**を覚えたら、
+記事を投稿したいと思います。
+
+最後まで読んでくださりありがとうございました。
+
+**Python に関する記事**は他にも書いているので、<br/>
+**興味がある方**はぜひ読んでみてください。
+
+<Link to="/category/Python" className="btn center-btn">
+  関連記事
+</Link>
+
+---
